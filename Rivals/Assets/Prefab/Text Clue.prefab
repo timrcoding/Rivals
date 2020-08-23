@@ -92,14 +92,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 29.75
+  m_fontSize: 25
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 10
-  m_fontSizeMax: 72
+  m_fontSizeMax: 25
   m_fontStyle: 0
-  m_textAlignment: 514
+  m_textAlignment: 513
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 7540983030160069240}
   - component: {fileID: 5067761864600611420}
   - component: {fileID: 1014262562373849733}
+  - component: {fileID: 4721498178000423249}
   m_Layer: 0
   m_Name: Text Clue
   m_TagString: Untagged
@@ -273,4 +274,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5067761864600611420}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4721498178000423249}
+        m_MethodName: setText
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4721498178000423249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8728225667582219268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09328ebfafae054e9b6642e796bac96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueRef: 0
+  Title: 
+  TitleText: {fileID: 3955936676413207528}
+  bodyText: []

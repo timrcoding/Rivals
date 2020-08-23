@@ -28,14 +28,14 @@ public class SelectChapter : MonoBehaviour
 
     public void ChapterSelection()
     {
-        if(chapterSelection >= GameResources.instance.chapters.Length)
+        if(chapterSelection >= GameResources.instance.sections.Length)
         {
             chapterSelection = 0;
         }
-        foreach (GameObject g in GameResources.instance.chapters)
+        foreach (GameObject g in GameResources.instance.sections)
         {
             g.SetActive(false);
         }
-        GameResources.instance.chapters[chapterSelection].SetActive(true);
+        GameResources.instance.sections[chapterSelection].SetActive(true);
     }
 }

@@ -8,15 +8,32 @@ public class GameResources : MonoBehaviour
 
     [SerializeField]
     private TextAsset chapterTitlesText;
+    [SerializeField]
+    private TextAsset chapterDatesText;
+    [SerializeField]
+    private TextAsset descriptionText;
     public List<string> chapterTitles;
+    public List<string> chapterDates;
+    public List<string> descriptions;
+    public GameObject[] sections;
     public GameObject[] chapters;
+    public GameObject[] chapterTitleButtons;
 
-    void Start()
+    public TextAsset[] textCluesText;
+    public GameObject[] textClues;
+    public GameObject[] cassettes;
+
+    public GameObject selectionMenu;
+
+    void Awake()
     {
         instance = this;
+        //PickAnswer.instance.openMenu();
         setChapters();
-        setSections();
-        
+        setTextAssets();
+        setTitleRef();
+        setTextClues();
+        //PickAnswer.instance.closeMenu();
     }
 
     // Update is called once per frame
@@ -25,9 +42,44 @@ public class GameResources : MonoBehaviour
         
     }
 
+    public void setCassettes()
+    {
+        for (int i = 0; i < cassettes.Length; i++)
+        {
+            cassettes[i].GetComponent<ClipInfo>().uniqueRef = i;
+        }
+    }
+
     public void setChapters()
     {
+        for(int i = 0; i < chapters.Length; i++)
+        {
+            chapters[i].GetComponent<ChapterInfo>().uniqueRef = i;
+        }
+    }
+
+    public void setTextClues()
+    {
+        for(int i = 0; i < textClues.Length; i++)
+        {
+            textClues[i].GetComponent<TextCluesInfo>().uniqueRef = i;
+        }
+    }
+
+    public void setTextAssets()
+    {
         chapterTitles = new List<string>(chapterTitlesText.text.Split('\n'));
+        chapterDates = new List<string>(chapterDatesText.text.Split('\n'));
+        descriptions = new List<string>(descriptionText.text.Split('\n'));
+    }
+
+    public void setTitleRef()
+    {
+        for(int i = 0; i < chapterTitles.Count; i++)
+        {
+            chapters[i].GetComponent<ChapterInfo>().uniqueRef = i;
+            chapterTitleButtons[i].GetComponent<TitleInfo>().uniqueRef = i; 
+        }
     }
 
     public void setSections()

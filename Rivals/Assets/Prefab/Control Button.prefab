@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 5597313079860608972}
   - component: {fileID: 2711407991268270739}
   - component: {fileID: 8073545709099285918}
+  - component: {fileID: 316578396102216875}
   m_Layer: 0
   m_Name: Control Button
   m_TagString: Untagged
@@ -346,4 +347,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2711407991268270739}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 316578396102216875}
+        m_MethodName: activateScrub
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &316578396102216875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8031835444859707454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f36df01fd7074a4429363acf9a28419d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewind: 1
+  speed: 4

@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 8174856313280209930}
   - component: {fileID: 3539776970195356656}
   - component: {fileID: 279930650020356482}
+  - component: {fileID: 7569464430386624092}
   m_Layer: 0
   m_Name: Cassette Side 1
   m_TagString: Untagged
@@ -266,7 +267,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8174856313280209930}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7569464430386624092}
+        m_MethodName: playClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &279930650020356482
 Animator:
   serializedVersion: 3
@@ -286,6 +298,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7569464430386624092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3826875229372279238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfe4b1244e519048b7dd3d699112fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueRef: 0
 --- !u!1 &4245401339225181221
 GameObject:
   m_ObjectHideFlags: 0
