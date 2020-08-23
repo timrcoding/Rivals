@@ -41,6 +41,7 @@ public class TextCluesInfo : MonoBehaviour
     public void setText()
     {
         StartCoroutine(resetScroll());
+        AudioManager.instance.PlayPaper();
         GameObject Text = GameObject.FindGameObjectWithTag("BookText");
         TextMeshProUGUI text = Text.GetComponent<TextMeshProUGUI>();
         text.text = "";

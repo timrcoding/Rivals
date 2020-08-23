@@ -42,6 +42,7 @@ public class ChapterInfo : MonoBehaviour
     {
         PickAnswer.instance.openMenu();
         PickAnswer.instance.chapterRef = uniqueRef;
+        AudioManager.instance.PlayPaper();
     }
 
     public void setChapterText(int i)

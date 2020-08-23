@@ -14,6 +14,7 @@ public class ScrubClip : MonoBehaviour
 
     public IEnumerator scrub()
     {
+        AudioManager.instance.playClick();
         if (rewind)
         {
             AudioManager.instance.source.pitch = -speed;
@@ -24,5 +25,6 @@ public class ScrubClip : MonoBehaviour
         }
         yield return new WaitForSeconds(1.5f);
         AudioManager.instance.source.pitch = 1;
+        AudioManager.instance.playClick();
     }
 }

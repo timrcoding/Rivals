@@ -17,7 +17,7 @@ public class TitleInfo : MonoBehaviour
         PickAnswer.instance.titleRef = uniqueRef;
         PickAnswer.instance.compareAnswers();
         PickAnswer.instance.closeMenu();
-
+        AudioManager.instance.PlayScribble();
     }
 
     public void setDescription()
