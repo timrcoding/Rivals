@@ -9,7 +9,7 @@ public class ClipInfo : MonoBehaviour
     public void playClip()
     {
         anim.SetTrigger("Press");
-        AudioManager.instance.playClip(uniqueRef);
+        //AudioManager.instance.playClip(uniqueRef);
         Debug.Log("PLAYIG CLIP");
     }
 }

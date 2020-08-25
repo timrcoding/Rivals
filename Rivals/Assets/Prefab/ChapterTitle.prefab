@@ -145,6 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uniqueRef: 0
   titleText: {fileID: 7225889453696718081}
+  pickable: 0
+  foreground: {fileID: 4407505401325448239}
 --- !u!114 &3779949616214482275
 MonoBehaviour:
   m_ObjectHideFlags: 0

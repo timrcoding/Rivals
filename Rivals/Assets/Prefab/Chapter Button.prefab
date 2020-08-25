@@ -176,8 +176,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueRef: 0
+  picked: 0
+  proposedRef: 0
   title: {fileID: 1724131936636612969}
   dateText: {fileID: 4784569072013029257}
+  foreground: {fileID: 4590263533494096641}
 --- !u!114 &-4692543109288153980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,7 +457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2598448908939919620
 RectTransform:
   m_ObjectHideFlags: 0

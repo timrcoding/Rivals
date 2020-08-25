@@ -40,14 +40,14 @@ public class PickAnswer : MonoBehaviour
         {
             if (!correctAnswers.Contains(chapterRef))
             {
-                correctAnswers.Add(chapterRef);
+                SaveManager.instance.activeSave.round.Add(chapterRef);
             }
         }
         else
         {
             if (correctAnswers.Contains(chapterRef))
             {
-                correctAnswers.Remove(chapterRef);
+                SaveManager.instance.activeSave.round.Remove(chapterRef);
             }
         }
 
@@ -58,15 +58,17 @@ public class PickAnswer : MonoBehaviour
     {
         GameResources.instance.chapters[chapterRef].GetComponent<ChapterInfo>().setChapterText(titleRef);
         GameResources.instance.chapters[chapterRef].GetComponent<ChapterInfo>().proposedRef = titleRef;
+        SaveManager.instance.activeSave.proposedNames[chapterRef] = titleRef;
         GameResources.instance.chapters[chapterRef].GetComponent<ChapterInfo>().picked = true;
         checkForRoundCompletion();
     }
 
     public void checkForRoundCompletion()
     {
-        if(correctAnswers.Count == 5)
+        if(SaveManager.instance.activeSave.round.Count >= 5)
         {
-            Debug.Log("ROUND COMPLETE");
+            SaveManager.instance.Save();
+            LevelLoader.instance.loadScene(1);
         }
     }
 }

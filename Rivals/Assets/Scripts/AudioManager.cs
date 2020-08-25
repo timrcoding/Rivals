@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource sfx;
     public AudioClip[] clips;
 
+
     public AudioClip cassetteLoad;
     public AudioClip cassetteClick;
     public AudioClip paper;
@@ -18,10 +19,10 @@ public class AudioManager : MonoBehaviour
         instance = this;
     }
 
-    public void playClip(int i)
+    public void playClip(AudioClip clip)
     {
         source.Stop();
-        source.PlayOneShot(clips[i]);
+        source.PlayOneShot(clip);
         sfx.PlayOneShot(cassetteLoad);
     }
 

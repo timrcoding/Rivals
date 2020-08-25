@@ -28,12 +28,13 @@ public class GameResources : MonoBehaviour
     void Awake()
     {
         instance = this;
-        //PickAnswer.instance.openMenu();
-        setChapters();
         setTextAssets();
-        setTitleRef();
-        setTextClues();
-        //PickAnswer.instance.closeMenu();
+        GameResources.instance.setChapters();
+        GameResources.instance.setTitleRef();
+        GameResources.instance.setTextClues();
+        StartCoroutine(GameResources.instance.saveGame());
+        
+        
     }
 
     // Update is called once per frame
@@ -54,7 +55,10 @@ public class GameResources : MonoBehaviour
     {
         for(int i = 0; i < chapters.Length; i++)
         {
-            chapters[i].GetComponent<ChapterInfo>().uniqueRef = i;
+            if (chapters[i] != null)
+            {
+                chapters[i].GetComponent<ChapterInfo>().uniqueRef = i;
+            }
         }
     }
 
@@ -62,7 +66,10 @@ public class GameResources : MonoBehaviour
     {
         for(int i = 0; i < textClues.Length; i++)
         {
-            textClues[i].GetComponent<TextCluesInfo>().uniqueRef = i;
+            if (textClues[i] != null)
+            {
+                textClues[i].GetComponent<TextCluesInfo>().uniqueRef = i;
+            }
         }
     }
 
@@ -75,26 +82,21 @@ public class GameResources : MonoBehaviour
 
     public void setTitleRef()
     {
-        for(int i = 0; i < chapterTitles.Count; i++)
+        if (chapters != null)
         {
-            chapters[i].GetComponent<ChapterInfo>().uniqueRef = i;
-            chapterTitleButtons[i].GetComponent<TitleInfo>().uniqueRef = i; 
+            for (int i = 0; i < chapterTitles.Count; i++)
+            {
+                
+                    chapters[i].GetComponent<ChapterInfo>().uniqueRef = i;
+                    chapterTitleButtons[i].GetComponent<TitleInfo>().uniqueRef = i;
+            }
         }
     }
 
-    public void setSections()
+    public IEnumerator saveGame()
     {
-        foreach (GameObject g in GameResources.instance.chapters)
-        {
-            g.GetComponent<SectionInfo>().setSections();
-            if(g.GetComponent<SectionInfo>().sectionRef == 0)
-            {
-                g.SetActive(true);
-            }
-            else
-            {
-                g.SetActive(false);
-            }
-        }
+        SaveManager.instance.Save();
+        yield return new WaitForSeconds(5);
+        StartCoroutine(saveGame());
     }
 }

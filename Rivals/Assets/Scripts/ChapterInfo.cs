@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChapterInfo : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class ChapterInfo : MonoBehaviour
     public int proposedRef;
     public TextMeshProUGUI title;
     public TextMeshProUGUI dateText;
+    public GameObject foreground;
     void Start()
     {
         setChapterTitles();
@@ -29,7 +31,27 @@ public class ChapterInfo : MonoBehaviour
 
     public void setChapterTitles()
     {
-        title.text = "Chapter " + (uniqueRef + 1).ToString();
+        if (SaveManager.instance.activeSave.proposedNames[uniqueRef] == 99)
+        {
+            title.text = "Chapter " + (uniqueRef + 1).ToString();
+        }
+        else
+        {
+            title.text = GameResources.instance.chapterTitles[SaveManager.instance.activeSave.proposedNames[uniqueRef]];
+        }
+        checkIfChapterConfirmed();
+    }
+
+    public void checkIfChapterConfirmed()
+    {
+        if (SaveManager.instance.activeSave.correctlyIdentified[uniqueRef])
+        {
+            picked = true;
+            proposedRef = uniqueRef;
+            GetComponent<Button>().interactable = false;
+            foreground.GetComponent<Image>().color = Color.clear;
+            title.color = Color.white;
+        }
     }
 
     public void animateButton()
