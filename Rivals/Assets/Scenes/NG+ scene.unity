@@ -174,7 +174,11 @@ MonoBehaviour:
   cassetteClick: {fileID: 8300000, guid: dd9b5954e44146341a1a9a0400ba4b35, type: 3}
   paper: {fileID: 8300000, guid: 347c7ef9c8bb56041bab25a58bd0add7, type: 3}
   scribble: {fileID: 8300000, guid: e356def9777441b48a7cc955fff19c79, type: 3}
-  entryClick: {fileID: 8300000, guid: 099dc934c6006444b824e90aa3fe89a4, type: 3}
+  rollover:
+  - {fileID: 8300000, guid: 4fa6e0af4a0c6f7458268ff869aa53bd, type: 3}
+  - {fileID: 8300000, guid: a12fcaf8c64e1034aa4a2e3857b6c00b, type: 3}
+  - {fileID: 8300000, guid: 9ee86bb987d7eb04fa62bc7064d2d883, type: 3}
+  - {fileID: 8300000, guid: c36a5cdafbe7a9849b284abb83283eb6, type: 3}
   nowPlaying: {fileID: 1025294211}
   slider: {fileID: 360336700}
   paused: 0
@@ -2732,7 +2736,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 2245748a122fb274b8970533f52bb672, type: 3}
   - {fileID: 4900000, guid: c53f6dc1c80371541970a768158d72ea, type: 3}
   - {fileID: 4900000, guid: e80e576db7bc36144a31b3c0e50e4a32, type: 3}
-  - {fileID: 4900000, guid: 6c061872010023245b008a494ba956d0, type: 3}
+  - {fileID: 4900000, guid: 9b21fbc1d80773d41911beb35dd0013d, type: 3}
   textClues:
   - {fileID: 1018988516}
   - {fileID: 1528536818}
@@ -2786,7 +2790,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165740718}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36417eb8e605ba243a480ee3225bbc5f, type: 3}
   m_Name: 
@@ -2825,7 +2829,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165740718}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 516ccd91931a61f4a91b62e90bd74e15, type: 3}
   m_Name: 
@@ -6166,6 +6170,7 @@ MonoBehaviour:
     proposedNames: 630000006300000063000000630000006300000063000000630000006300000063000000630000006300000063000000630000006300000063000000630000006300000063000000630000006300000063000000630000006300000063000000630000006300000063000000630000006300000063000000
     round: 
     roundCount: 0
+    click: 0
   hasLoaded: 0
 --- !u!4 &525039110
 Transform:
@@ -17020,7 +17025,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2014394721}
   m_HandleRect: {fileID: 2014394720}
   m_Direction: 2
-  m_Value: 0.9999998
+  m_Value: 0.99999994
   m_Size: 0.29230875
   m_NumberOfSteps: 0
   m_OnValueChanged:

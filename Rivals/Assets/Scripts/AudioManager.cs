@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip cassetteClick;
     public AudioClip paper;
     public AudioClip scribble;
-    public AudioClip entryClick;
+    public AudioClip[] rollover;
 
     public TextMeshProUGUI nowPlaying;
 
@@ -29,7 +29,14 @@ public class AudioManager : MonoBehaviour
     {
         instance = this;
         clearText();
-        clickOn = true;
+        if (SaveManager.instance != null)
+        {
+            clickOn = SaveManager.instance.activeSave.click;
+        }
+        else
+        {
+            clickOn = true;
+        }
     }
 
     private void Update()
@@ -111,6 +118,15 @@ public class AudioManager : MonoBehaviour
     public void PlayScribble()
     {
         sfx.PlayOneShot(scribble);
+    }
+
+    public void playRollover()
+    {
+        if (clickOn)
+        {
+            int num = Random.Range(0, rollover.Length);
+            sfx.PlayOneShot(rollover[num]);
+        }
     }
 
     public void setSlider(AudioClip audioclip)

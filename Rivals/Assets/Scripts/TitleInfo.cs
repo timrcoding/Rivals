@@ -49,10 +49,7 @@ public class TitleInfo : MonoBehaviour
     public void setDescription()
     {
         Description.instance.setDescription(uniqueRef);
-        if (AudioManager.instance.clickOn)
-        {
-            AudioManager.instance.sfx.PlayOneShot(AudioManager.instance.entryClick);
-        }
+        AudioManager.instance.playRollover();
 
     }
 

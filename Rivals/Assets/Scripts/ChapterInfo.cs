@@ -79,10 +79,7 @@ public class ChapterInfo : MonoBehaviour
 
     public void setDescription()
     {
-        if (AudioManager.instance.clickOn)
-        {
-            AudioManager.instance.sfx.PlayOneShot(AudioManager.instance.entryClick);
-        }
+        AudioManager.instance.playRollover();
         if (picked)
         {
             Description.instance.setDescription(proposedRef);

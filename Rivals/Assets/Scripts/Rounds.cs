@@ -33,7 +33,7 @@ public class Rounds : MonoBehaviour
 
     public void setRounds()
     {
-        round = SaveManager.instance.activeSave.roundCount;
+        //round = SaveManager.instance.activeSave.roundCount;
         for(int i = 0; i < rounds.Length; i++)
         {
             if(i <= round)

@@ -6,6 +6,6 @@ public class PlayClickEnter : MonoBehaviour
 {
     public void playClick()
     {
-        AudioManager.instance.sfx.PlayOneShot(AudioManager.instance.entryClick);
+        AudioManager.instance.playRollover();
     }
 }

@@ -174,7 +174,11 @@ MonoBehaviour:
   cassetteClick: {fileID: 8300000, guid: dd9b5954e44146341a1a9a0400ba4b35, type: 3}
   paper: {fileID: 8300000, guid: 347c7ef9c8bb56041bab25a58bd0add7, type: 3}
   scribble: {fileID: 8300000, guid: e356def9777441b48a7cc955fff19c79, type: 3}
-  entryClick: {fileID: 8300000, guid: 099dc934c6006444b824e90aa3fe89a4, type: 3}
+  rollover:
+  - {fileID: 8300000, guid: 4fa6e0af4a0c6f7458268ff869aa53bd, type: 3}
+  - {fileID: 8300000, guid: a12fcaf8c64e1034aa4a2e3857b6c00b, type: 3}
+  - {fileID: 8300000, guid: 9ee86bb987d7eb04fa62bc7064d2d883, type: 3}
+  - {fileID: 8300000, guid: c36a5cdafbe7a9849b284abb83283eb6, type: 3}
   nowPlaying: {fileID: 1025294211}
   slider: {fileID: 360336700}
   paused: 0
@@ -5107,6 +5111,7 @@ MonoBehaviour:
     proposedNames: 630000006300000063000000630000006300000063000000630000006300000063000000630000006300000063000000630000006300000063000000630000006300000063000000630000006300000063000000630000006300000063000000630000006300000063000000630000006300000063000000
     round: 
     roundCount: 0
+    click: 1
   hasLoaded: 0
 --- !u!4 &525039110
 Transform:

@@ -85,5 +85,6 @@ public class saveData
     public int[] proposedNames;
     public List<int> round;
     public int roundCount;
+    public bool click;
     
 }

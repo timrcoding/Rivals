@@ -36,10 +36,7 @@ public class TextColorChange : MonoBehaviour
 
     public void playClick()
     {
-        if (AudioManager.instance.clickOn)
-        {
-            AudioManager.instance.sfx.PlayOneShot(AudioManager.instance.entryClick);
-        }
+        AudioManager.instance.playRollover();
     }
 
     public IEnumerator setOrigColor()

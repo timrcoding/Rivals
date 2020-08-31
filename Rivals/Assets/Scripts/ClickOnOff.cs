@@ -9,11 +9,16 @@ public class ClickOnOff : MonoBehaviour
 
     private void Start()
     {
-        text.text = "Turn click off";
+        StartCoroutine(setClickSwitch());
     }
     public void clickSwitch()
     {
         AudioManager.instance.clickOn = !AudioManager.instance.clickOn;
+        if (SaveManager.instance != null)
+        {
+            SaveManager.instance.activeSave.click = AudioManager.instance.clickOn;
+            SaveManager.instance.Save();
+        }
         if (AudioManager.instance.clickOn)
         {
             text.text = "Turn click off";
@@ -23,5 +28,18 @@ public class ClickOnOff : MonoBehaviour
             text.text = "Turn click on";
         }
 
+    }
+
+    public IEnumerator setClickSwitch()
+    {
+        yield return new WaitForSeconds(Time.deltaTime);
+        if (AudioManager.instance.clickOn)
+        {
+            text.text = "Turn click off";
+        }
+        else
+        {
+            text.text = "Turn click on";
+        }
     }
 }
