@@ -49,6 +49,8 @@ public class TextCluesInfo : MonoBehaviour
         foreach (string s in bodyText) {
             text.GetComponent<TextMeshProUGUI>().text += s + '\n' + '\n';
         }
+        //Text.GetComponent<RectTransform>().offsetMin = new Vector2(37, bodyText.Count * 100);
+        //Text.GetComponent<RectTransform>().offsetMax = new Vector2(70,0);
     }
 
     public IEnumerator resetScroll()
@@ -57,5 +59,11 @@ public class TextCluesInfo : MonoBehaviour
         GameObject scroll = GameObject.FindGameObjectWithTag("Scroll");
         scroll.GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
 
+    }
+
+    public void shakeTitle()
+    {
+        Debug.Log("Shake");
+        GetComponent<Animator>().SetTrigger("Shake");
     }
 }

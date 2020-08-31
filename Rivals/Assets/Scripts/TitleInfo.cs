@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class TitleInfo : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class TitleInfo : MonoBehaviour
             GetComponent<Button>().interactable = false;
             foreground.GetComponent<Image>().color = Color.clear;
             titleText.color = Color.black;
+            GetComponent<TextColorChange>().origColor = Color.black;
+        }
+        else
+        {
+            GetComponent<TextColorChange>().origColor = Color.white;
         }
     }
 
@@ -32,10 +38,27 @@ public class TitleInfo : MonoBehaviour
         PickAnswer.instance.compareAnswers();
         PickAnswer.instance.closeMenu();
         AudioManager.instance.PlayScribble();
+        PickAnswer.instance.colorChosenTitles();
+        
     }
+
+    
+
+    
 
     public void setDescription()
     {
         Description.instance.setDescription(uniqueRef);
+        if (AudioManager.instance.clickOn)
+        {
+            AudioManager.instance.sfx.PlayOneShot(AudioManager.instance.entryClick);
+        }
+
+    }
+
+    public void shakeTitle()
+    {
+        Debug.Log("Shake");
+        GetComponent<Animator>().SetTrigger("Shake");
     }
 }

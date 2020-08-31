@@ -5,7 +5,6 @@ using UnityEngine;
 public class SelectChapter : MonoBehaviour
 {
     public static SelectChapter instance;
-
     public int chapterSelection;
 
     void Start()
@@ -26,11 +25,21 @@ public class SelectChapter : MonoBehaviour
         ChapterSelection();
     }
 
+    public void decChapter()
+    {
+        chapterSelection--;
+        ChapterSelection();
+    }
+
     public void ChapterSelection()
     {
         if(chapterSelection >= GameResources.instance.sections.Length)
         {
             chapterSelection = 0;
+        }
+        if (chapterSelection < 0)
+        {
+            chapterSelection = GameResources.instance.sections.Length-1;
         }
         foreach (GameObject g in GameResources.instance.sections)
         {

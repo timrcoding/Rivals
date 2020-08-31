@@ -24,6 +24,7 @@ public class Confirmation : MonoBehaviour
         {
             confirmationObjects[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = GameResources.instance.chapterTitles[SaveManager.instance.activeSave.round[i]];
             confirmationObjects[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = GameResources.instance.descriptions[SaveManager.instance.activeSave.round[i]];
+            confirmationObjects[i].transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = GameResources.instance.chapterContents[SaveManager.instance.activeSave.round[i]];
         }
     }
 }

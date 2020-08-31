@@ -27,11 +27,12 @@ public class SaveManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         Load();
+        StartCoroutine(GameResources.instance.saveGame());
     }
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -80,6 +81,7 @@ public class saveData
 {
     public string saveName;
     public bool[] correctlyIdentified;
+    public List<int> submissionOrder;
     public int[] proposedNames;
     public List<int> round;
     public int roundCount;

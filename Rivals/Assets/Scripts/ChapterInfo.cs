@@ -51,6 +51,11 @@ public class ChapterInfo : MonoBehaviour
             GetComponent<Button>().interactable = false;
             foreground.GetComponent<Image>().color = Color.clear;
             title.color = Color.white;
+            GetComponent<TextColorChange>().origColor = Color.white;
+        }
+        else
+        {
+            GetComponent<TextColorChange>().origColor = Color.black;
         }
     }
 
@@ -74,6 +79,10 @@ public class ChapterInfo : MonoBehaviour
 
     public void setDescription()
     {
+        if (AudioManager.instance.clickOn)
+        {
+            AudioManager.instance.sfx.PlayOneShot(AudioManager.instance.entryClick);
+        }
         if (picked)
         {
             Description.instance.setDescription(proposedRef);

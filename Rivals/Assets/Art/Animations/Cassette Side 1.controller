@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Press
+    m_ConditionEvent: Shake
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2227523186289749509}
@@ -59,7 +59,7 @@ AnimatorController:
   m_Name: Cassette Side 1
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Press
+  - m_Name: Shake
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0

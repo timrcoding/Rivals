@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using System.Linq;
 
 public class PickAnswer : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PickAnswer : MonoBehaviour
     void Start()
     {
         instance = this;
+        colorChosenTitles();
 
     }
 
@@ -23,14 +25,12 @@ public class PickAnswer : MonoBehaviour
 
     public void openMenu()
     {
-        Debug.Log("OPEN");
         GameResources.instance.selectionMenu.SetActive(true);
         
     }
 
     public void closeMenu()
     {
-        Debug.Log("CLOSE");
         GameResources.instance.selectionMenu.SetActive(false);
     }
 
@@ -38,20 +38,30 @@ public class PickAnswer : MonoBehaviour
     {
         if(chapterRef == titleRef)
         {
-            if (!correctAnswers.Contains(chapterRef))
+            if (!SaveManager.instance.activeSave.round.Contains(chapterRef))
             {
                 SaveManager.instance.activeSave.round.Add(chapterRef);
             }
         }
         else
-        {
-            if (correctAnswers.Contains(chapterRef))
-            {
+        {  
                 SaveManager.instance.activeSave.round.Remove(chapterRef);
-            }
+                
+            
         }
 
         setAnswer();
+    }
+
+    public void clearChapter()
+    {
+        SaveManager.instance.activeSave.proposedNames[chapterRef] = 99;
+        GameResources.instance.chapters[chapterRef].GetComponent<ChapterInfo>().setChapterTitles();
+        colorChosenTitles();
+        if (SaveManager.instance.activeSave.round.Contains(chapterRef))
+        {
+            SaveManager.instance.activeSave.round.Remove(chapterRef);
+        }
     }
 
     public void setAnswer()
@@ -68,7 +78,24 @@ public class PickAnswer : MonoBehaviour
         if(SaveManager.instance.activeSave.round.Count >= 5)
         {
             SaveManager.instance.Save();
-            LevelLoader.instance.loadScene(1);
+            StartCoroutine(GameResources.instance.TransitionOut(3));
+        }
+    }
+
+    public void colorChosenTitles()
+    {
+        for (int i = 0; i < SaveManager.instance.activeSave.proposedNames.Length; i++)
+        {
+            GameResources.instance.chapterTitleButtons[i].GetComponent<TitleInfo>().titleText.color = Color.white;
+            if (SaveManager.instance.activeSave.proposedNames.Contains(i) && !SaveManager.instance.activeSave.correctlyIdentified[i]) 
+            {
+                GameResources.instance.chapterTitleButtons[i].GetComponent<TitleInfo>().titleText.color = Color.red;
+            }
+            else if (SaveManager.instance.activeSave.correctlyIdentified[i])
+            {
+                GameResources.instance.chapterTitleButtons[i].GetComponent<TitleInfo>().titleText.color = Color.black;
+            }
+
         }
     }
 }

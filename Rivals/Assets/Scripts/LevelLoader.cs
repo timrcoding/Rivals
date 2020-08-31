@@ -15,4 +15,26 @@ public class LevelLoader : MonoBehaviour
     {
         SceneManager.LoadScene(i);
     }
+
+    public void nextScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void prevScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    public void gameFinishLoad()
+    {
+        if (ResetNextScene.instance.gameFinished)
+        {
+            StartCoroutine(GameResources.instance.TransitionOut(SceneManager.GetActiveScene().buildIndex + 1));
+        }
+        else
+        {
+            StartCoroutine(GameResources.instance.TransitionOut(SceneManager.GetActiveScene().buildIndex - 1));
+        }
+    }
 }

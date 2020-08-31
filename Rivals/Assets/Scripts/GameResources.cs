@@ -12,29 +12,46 @@ public class GameResources : MonoBehaviour
     private TextAsset chapterDatesText;
     [SerializeField]
     private TextAsset descriptionText;
+    [SerializeField]
+    private TextAsset chapterContentsText;
+    [SerializeField]
+    private TextAsset nowPlayingText;
     public List<string> chapterTitles;
     public List<string> chapterDates;
     public List<string> descriptions;
+    public List<string> chapterContents;
+    public List<string> nowPlaying;
     public GameObject[] sections;
     public GameObject[] chapters;
     public GameObject[] chapterTitleButtons;
+  
 
     public TextAsset[] textCluesText;
     public GameObject[] textClues;
     public GameObject[] cassettes;
+
+    public GameObject transitionIn;
+    public GameObject transitionOut;
+
 
     public GameObject selectionMenu;
 
     void Awake()
     {
         instance = this;
+        
         setTextAssets();
         GameResources.instance.setChapters();
         GameResources.instance.setTitleRef();
         GameResources.instance.setTextClues();
-        StartCoroutine(GameResources.instance.saveGame());
         
         
+        
+    }
+
+    private void Start()
+    {
+        StartCoroutine(TransitionIn());
     }
 
     // Update is called once per frame
@@ -78,13 +95,15 @@ public class GameResources : MonoBehaviour
         chapterTitles = new List<string>(chapterTitlesText.text.Split('\n'));
         chapterDates = new List<string>(chapterDatesText.text.Split('\n'));
         descriptions = new List<string>(descriptionText.text.Split('\n'));
+        chapterContents = new List<string>(chapterContentsText.text.Split('\n'));
+        nowPlaying = new List<string>(nowPlayingText.text.Split('\n'));
     }
 
     public void setTitleRef()
     {
-        if (chapters != null)
+        if (chapters.Length != 0)
         {
-            for (int i = 0; i < chapterTitles.Count; i++)
+            for (int i = 0; i < chapterTitles.Count-1; i++)
             {
                 
                     chapters[i].GetComponent<ChapterInfo>().uniqueRef = i;
@@ -99,4 +118,19 @@ public class GameResources : MonoBehaviour
         yield return new WaitForSeconds(5);
         StartCoroutine(saveGame());
     }
+
+    public IEnumerator TransitionIn()
+    {
+        transitionIn.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        transitionIn.SetActive(false);
+    }
+
+    public IEnumerator TransitionOut(int i)
+    {
+        transitionOut.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        LevelLoader.instance.loadScene(i);
+    }
+
 }
