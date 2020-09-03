@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,12 +9,23 @@ public class NGQuiz : MonoBehaviour
 {
     public static NGQuiz instance;
 
+    public TextAsset namesText;
+    public List<string> names;
+
     public TextAsset quizText;
     public List<string> quiz;
     public TextAsset answerText;
-    public List<string> correctAnswers;
+    public List<int> correctAnswers;
     public List<bool> checkedCorrect;
     public int score;
+    public List<GameObject> selectionButtons;
+    public List<GameObject> choices;
+
+    public int cluePicked;
+    public int answerProposed;
+
+    public GameObject nameSelection;
+    public GameObject bookImage;
     void Awake()
     {
         if (instance == null)
@@ -26,20 +38,29 @@ public class NGQuiz : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         quiz = new List<string>(quizText.text.Split('\n'));
-        correctAnswers = new List<string>(answerText.text.Split('\n'));
-
         
+        names = new List<string>(namesText.text.Split('\n'));
+
+        for(int i = 0; i < selectionButtons.Count; i++)
+        {
+            choices[i].GetComponent<NGButton>().uniqueRef = i;
+            selectionButtons[i].GetComponent<NGSelectionButton>().uniqueRef = i;
+            
+        }
+        switchOffNames();
     }
 
-    public void checkAnswer(int uniqueRef, int reference)
+    public void checkAnswer()
     {
-       if (System.Convert.ToInt32(correctAnswers[uniqueRef]) == reference)
+       if (cluePicked == answerProposed)
         {
-            checkedCorrect[uniqueRef] = true;
+            checkedCorrect[cluePicked] = true;
+            Debug.Log("CORRECT");
         }
         else
         {
-            checkedCorrect[uniqueRef] = false;
+            checkedCorrect[cluePicked] = false;
+            Debug.Log("WRONG");
         }
         setScore();
     }
@@ -48,5 +69,16 @@ public class NGQuiz : MonoBehaviour
     {
         score = checkedCorrect.Where(c => c).Count();
     }
-    
+
+    public void switchOnNames()
+    {
+        nameSelection.SetActive(true);
+        bookImage.SetActive(true);
+    }
+
+    public void switchOffNames()
+    {
+        nameSelection.SetActive(false);
+        bookImage.SetActive(false);
+    }
 }

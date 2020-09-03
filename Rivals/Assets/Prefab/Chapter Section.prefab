@@ -297,6 +297,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Brother
       objectReference: {fileID: 0}
+    - target: {fileID: 1724131936636612969, guid: 777a58fb62ddb3f4f9b9a488311033c8,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3168292504863137333, guid: 777a58fb62ddb3f4f9b9a488311033c8,
         type: 3}
       propertyPath: m_Name
@@ -463,6 +468,11 @@ PrefabInstance:
       propertyPath: m_text
       value: Royale with Cheese
       objectReference: {fileID: 0}
+    - target: {fileID: 1724131936636612969, guid: 777a58fb62ddb3f4f9b9a488311033c8,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3168292504863137333, guid: 777a58fb62ddb3f4f9b9a488311033c8,
         type: 3}
       propertyPath: m_Name
@@ -628,6 +638,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: A willing accomplice
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724131936636612969, guid: 777a58fb62ddb3f4f9b9a488311033c8,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3168292504863137333, guid: 777a58fb62ddb3f4f9b9a488311033c8,
         type: 3}
@@ -807,6 +822,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5632155911568781033, guid: 2c2524c3a2ed65f42b5d22a644c08a0b,
         type: 2}
+    - target: {fileID: 1724131936636612969, guid: 777a58fb62ddb3f4f9b9a488311033c8,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3168292504863137333, guid: 777a58fb62ddb3f4f9b9a488311033c8,
         type: 3}
       propertyPath: m_Name
@@ -1153,6 +1173,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.wordCount
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724131936636612969, guid: 777a58fb62ddb3f4f9b9a488311033c8,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3168292504863137333, guid: 777a58fb62ddb3f4f9b9a488311033c8,
         type: 3}

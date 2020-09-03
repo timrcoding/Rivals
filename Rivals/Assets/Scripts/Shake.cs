@@ -6,7 +6,6 @@ public class Shake : MonoBehaviour
 {
     public void shake()
     {
-        Debug.Log("Shake");
         GetComponent<Animator>().SetTrigger("Shake");
     }
 

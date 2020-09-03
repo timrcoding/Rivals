@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class setContinue : MonoBehaviour
 {
@@ -9,23 +10,31 @@ public class setContinue : MonoBehaviour
     void Start()
     {
         PlayerPrefs.GetInt("Continue", 0);
-        if(PlayerPrefs.GetInt("Continue") != 0)
+        if(PlayerPrefs.GetInt("Continue") == 0)
         {
-            continueOption.SetActive(true);
+            continueOption.GetComponent<Button>().interactable = false;
+            continueOption.GetComponent<Image>().color = Color.grey;
+            Debug.Log("NG NOT ACTIVE");
+            
         }
         else
         {
-            continueOption.SetActive(false);
+            continueOption.GetComponent<Button>().interactable = true;
+            continueOption.GetComponent<Image>().color = Color.white;
         }
 
         PlayerPrefs.GetInt("NG", 0);
-        if (PlayerPrefs.GetInt("NG") != 0)
+        if (PlayerPrefs.GetInt("NG") == 0)
         {
-            NG.SetActive(true);
+            NG.GetComponent<Button>().interactable = false;
+            NG.GetComponent<Image>().color = Color.grey;
+            Debug.Log("NG NOT ACTIVE");
         }
         else
         {
-            NG.SetActive(false);
+            NG.GetComponent<Button>().interactable = true;
+            NG.GetComponent<Image>().color = Color.white;
+            Debug.Log("NG IS ACTIVE");
         }
     }
 

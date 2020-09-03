@@ -26,7 +26,19 @@ public class SaveManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        Load();
+        
+        GameObject singleton = GameObject.FindGameObjectWithTag("Singleton");
+        if (singleton != null)
+        {
+            deleteSaveData();
+            Save();
+            Load();
+            Destroy(singleton);
+        }
+        else
+        {
+            Load();
+        }
         StartCoroutine(GameResources.instance.saveGame());
     }
     // Start is called before the first frame update
@@ -60,7 +72,6 @@ public class SaveManager : MonoBehaviour
             activeSave = serializer.Deserialize(stream) as saveData;
             stream.Close();
 
-            Debug.Log("Loaded");
             hasLoaded = true;
         }
     }
@@ -73,6 +84,27 @@ public class SaveManager : MonoBehaviour
             File.Delete(dataPath + "/" + activeSave.saveName + ".save");
             Debug.Log("Deleted");
         }
+    }
+
+    public void deleteData()
+    {
+
+        if (SaveManager.instance != null)
+        {
+
+            for (int i = 0; i < SaveManager.instance.activeSave.correctlyIdentified.Length; i++)
+            {
+                SaveManager.instance.activeSave.correctlyIdentified[i] = false;
+                SaveManager.instance.activeSave.proposedNames[i] = 99;
+            }
+
+            SaveManager.instance.activeSave.submissionOrder.Clear();
+            SaveManager.instance.activeSave.round.Clear();
+            Destroy(gameObject);
+        }
+
+
+
     }
 }
 

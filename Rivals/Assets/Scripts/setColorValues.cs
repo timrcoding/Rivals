@@ -10,7 +10,6 @@ public class setColorValues : MonoBehaviour
         for(int i = 0; i < bars.Length; i++)
         {
             float num = i;
-            Debug.Log(num);
             bars[i].GetComponent<BarColor>().uniqueRef = num;
             bars[i].GetComponent<BarColor>().setColor();
         }

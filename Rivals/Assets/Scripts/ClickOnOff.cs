@@ -21,11 +21,11 @@ public class ClickOnOff : MonoBehaviour
         }
         if (AudioManager.instance.clickOn)
         {
-            text.text = "Turn click off";
+            text.text = "Sound Effects off";
         }
         else
         {
-            text.text = "Turn click on";
+            text.text = "Sound Effects on";
         }
 
     }
@@ -35,11 +35,11 @@ public class ClickOnOff : MonoBehaviour
         yield return new WaitForSeconds(Time.deltaTime);
         if (AudioManager.instance.clickOn)
         {
-            text.text = "Turn click off";
+            text.text = "Sound Effects off";
         }
         else
         {
-            text.text = "Turn click on";
+            text.text = "Sound Effects on";
         }
     }
 }

@@ -33,7 +33,7 @@ public class Rounds : MonoBehaviour
 
     public void setRounds()
     {
-        //round = SaveManager.instance.activeSave.roundCount;
+        round = SaveManager.instance.activeSave.roundCount;
         for(int i = 0; i < rounds.Length; i++)
         {
             if(i <= round)
@@ -52,11 +52,8 @@ public class Rounds : MonoBehaviour
     {
         int  num = SaveManager.instance.activeSave.correctlyIdentified.Where(c => c).Count();
         int length = SaveManager.instance.activeSave.submissionOrder.Count;
-        Debug.Log("CORRECT: " + num);
-        Debug.Log("Length;" + length);
         if(num%5 != 0)
         {
-            Debug.Log("Round Error");
             int lastEntry = SaveManager.instance.activeSave.submissionOrder[SaveManager.instance.activeSave.submissionOrder.Count-1];
             SaveManager.instance.activeSave.submissionOrder.RemoveAt(SaveManager.instance.activeSave.submissionOrder.Count - 1);
             SaveManager.instance.activeSave.correctlyIdentified[lastEntry] = false;
@@ -65,8 +62,7 @@ public class Rounds : MonoBehaviour
         }
         else
         {
-            Debug.Log("No Error");
-            Debug.Log("SCENE LOADED");
+
         }
     }
 

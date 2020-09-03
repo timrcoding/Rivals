@@ -16,5 +16,12 @@ public class Description : MonoBehaviour
     public void setDescription(int i)
     {
         descriptionText.text = GameResources.instance.descriptions[i];
+        descriptionText.fontSizeMin = 35;
+    }
+
+    public void setContents(int i)
+    {
+        descriptionText.text = GameResources.instance.chapterContents[i];
+        descriptionText.fontSizeMin = 1;
     }
 }

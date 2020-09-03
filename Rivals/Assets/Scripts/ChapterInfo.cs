@@ -8,6 +8,7 @@ public class ChapterInfo : MonoBehaviour
 {
     public int uniqueRef;
     public bool picked;
+    public bool confirmed;
     public int proposedRef;
     public TextMeshProUGUI title;
     public TextMeshProUGUI dateText;
@@ -47,6 +48,7 @@ public class ChapterInfo : MonoBehaviour
         if (SaveManager.instance.activeSave.correctlyIdentified[uniqueRef])
         {
             picked = true;
+            confirmed = true;
             proposedRef = uniqueRef;
             GetComponent<Button>().interactable = false;
             foreground.GetComponent<Image>().color = Color.clear;
@@ -82,7 +84,15 @@ public class ChapterInfo : MonoBehaviour
         AudioManager.instance.playRollover();
         if (picked)
         {
-            Description.instance.setDescription(proposedRef);
+            if (confirmed)
+            {
+                Description.instance.setContents(proposedRef);
+            }
+            else
+            {
+                Description.instance.setDescription(proposedRef);
+            }
+            
         }
         else
         {

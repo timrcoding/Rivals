@@ -44,9 +44,9 @@ public class GameResources : MonoBehaviour
         GameResources.instance.setChapters();
         GameResources.instance.setTitleRef();
         GameResources.instance.setTextClues();
-        
-        
-        
+        PlayerPrefs.SetInt("Continue", 1);
+
+
     }
 
     private void Start()

@@ -6,7 +6,11 @@ public class Quit : MonoBehaviour
 {
    public void quitApp()
     {
-        SaveManager.instance.Save();
+        if (SaveManager.instance != null)
+        {
+            SaveManager.instance.Save();
+        }
+        Debug.Log("Quit");
         Application.Quit();
     }
 }

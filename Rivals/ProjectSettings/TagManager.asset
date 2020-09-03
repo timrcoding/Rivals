@@ -11,6 +11,8 @@ TagManager:
   - Round3
   - Round4
   - Round5
+  - bar
+  - Singleton
   layers:
   - Default
   - TransparentFX

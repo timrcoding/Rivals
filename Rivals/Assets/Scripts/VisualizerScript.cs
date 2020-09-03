@@ -11,7 +11,8 @@ public class VisualizerScript : MonoBehaviour
 	public Color visualizerColor = Color.gray;
 	[Space(15)]
 	public AudioClip audioClip;
-	public bool loop = true;
+	public bool gameScene;
+	public bool loop = false;
 	[Space(15), Range(64, 8192)]
 	public int visualizerSimples = 64;
 
@@ -25,11 +26,18 @@ public class VisualizerScript : MonoBehaviour
 
 		if (!audioClip)
 			return;
-
-		audioSource = new GameObject("_AudioSource").AddComponent<AudioSource>();
-		audioSource.loop = loop;
-		audioSource.clip = audioClip;
-		audioSource.Play();
+		if (!gameScene)
+		{
+			audioSource = new GameObject("_AudioSource").AddComponent<AudioSource>();
+			audioSource.loop = loop;
+			audioSource.clip = audioClip;
+			audioSource.Play();
+		}
+        else
+        {
+			audioSource = AudioManager.instance.source;
+			
+        }
 	}
 
 	// Update is called once per frame
