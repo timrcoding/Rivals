@@ -13,6 +13,7 @@ public class VisualizerScript : MonoBehaviour
 	public AudioClip audioClip;
 	public bool gameScene;
 	public bool loop = false;
+
 	[Space(15), Range(64, 8192)]
 	public int visualizerSimples = 64;
 

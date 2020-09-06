@@ -577,7 +577,7 @@ PrefabInstance:
     - target: {fileID: 1281214538, guid: 949d6a71021ac7f498428629557512f6, type: 3}
       propertyPath: audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 733155db9f111944a849095b471d8677, type: 3}
+      objectReference: {fileID: 8300000, guid: 37228147411ec324c9726cceb7e98239, type: 3}
     - target: {fileID: 9027722197465814720, guid: 949d6a71021ac7f498428629557512f6,
         type: 3}
       propertyPath: m_Name
@@ -717,7 +717,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 733155db9f111944a849095b471d8677, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 37228147411ec324c9726cceb7e98239, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0
   m_Pitch: 1
@@ -1337,11 +1337,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   source: {fileID: 373008748}
-  clip: {fileID: 8300000, guid: f0bb061fefe7c2143b3b6492882d525e, type: 3}
+  clip: {fileID: 8300000, guid: 37228147411ec324c9726cceb7e98239, type: 3}
   level: 2
   audioTime: 0
   clipLength: 0
-  specifiedClipLength: 0
+  specifiedClipLength: 116
 --- !u!114 &749770646
 MonoBehaviour:
   m_ObjectHideFlags: 0
